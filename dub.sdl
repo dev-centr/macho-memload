@@ -1,0 +1,24 @@
+name "macho-memload"
+description "In-memory Mach-O / dyld loader (BetterC) for polyglot and APE payloads"
+version "0.1.0"
+authors "DevCentr"
+copyright "Copyright © 2026, DevCentr"
+homepage "https://github.com/dev-centr/macho-memload"
+license "MIT"
+
+targetType "library"
+targetName "macho-memload"
+dflags "-betterC"
+
+configuration "library" {
+	targetType "library"
+	dflags "-betterC"
+}
+
+configuration "test-betterc" {
+	targetType "executable"
+	targetName "macho-memload-test"
+	sourceFiles "tests/min_macho.d"
+	dflags "-betterC"
+	versions "MachoMemloadTest"
+}

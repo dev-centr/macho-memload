@@ -1,0 +1,18 @@
+= macho-memload
+:description: Experimental in-memory Mach-O / dyld loader in D BetterC.
+
+Library that maps a Mach-O image from memory. macOS cannot `fexecve` an anonymous file the way Linux can, so an Actually Portable Executable (or any zip-backed payload) that wants a **native** host-optimized slice on Darwin either writes a temp file or loads the image itself.
+
+This project is the second option.
+
+== Status
+
+**Experimental.** Classic `LC_DYLD_INFO` rebase and bind are implemented. Chained fixups (`LC_DYLD_CHAINED_FIXUPS`), code-signing enforcement, and full dyld interposing are not.
+
+On Darwin, `LC_LOAD_DYLIB` names resolve with `dlopen` / `dlsym`. On Linux and Windows the mapper still copies segments (useful for tests and Binary Tailor inspection) but does not bind against a macOS dylib tree.
+
+== Related
+
+* xref:general-knowledge:explanation/architecture/polyglot-distribution.adoc[Polyglot distribution (experimental)]
+* link:https://github.com/dev-centr/binary-tailor[binary-tailor]
+* link:https://github.com/jart/cosmopolitan[Cosmopolitan Libc / APE]

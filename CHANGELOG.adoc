@@ -1,0 +1,7 @@
+= Changelog
+
+== 2026-08-18 — v0.1.0
+
+* BetterC Mach-O parser (thin + fat), segment mapper, classic `dyld_info` rebase/bind.
+* C ABI: `memload_parse`, `memload_map`, `memload_unmap`.
+* Darwin resolves `LC_LOAD_DYLIB` via `dlopen`/`dlsym`. Other hosts map and rebase without host dylibs.

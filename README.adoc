@@ -1,0 +1,56 @@
+ifndef::env-github[:icons: font]
+:toc: preamble
+
+ifdef::env-github[]
+++++
+<div align="center">
+<a href="https://github.com/dev-centr/macho-memload/graphs/contributors"><img src="https://img.shields.io/github/contributors/dev-centr/macho-memload.svg?style=for-the-badge" alt="Contributors"></a>
+<a href="https://github.com/dev-centr/macho-memload/blob/main/LICENSE"><img src="https://img.shields.io/github/license/dev-centr/macho-memload.svg?style=for-the-badge" alt="License"></a>
+<h3 align="center">macho-memload</h3>
+<p align="center">
+In-memory Mach-O loader for polyglot payloads.<br />
+<a href="https://docs.devcentr.org/general-knowledge/latest/explanation/architecture/polyglot-distribution.html"><strong>Explore the docs »</strong></a>
+</p>
+</div>
+++++
+endif::[]
+
+= macho-memload
+
+D **BetterC** library that maps a Mach-O image from a byte buffer (APE zip payload, fat slice, or file) without writing a `.dylib` to disk.
+
+macOS has no `fexecve`. Running an embedded Mach-O either drops a file or implements a loader. This is the loader.
+
+**Experimental.** Classic `LC_DYLD_INFO` rebase/bind is implemented. Chained fixups, library interposing, and Apple code-signing gates are not.
+
+== Usage
+
+[source,d]
+----
+import macho_memload;
+
+memload_image img;
+auto err = memload_map(bytes.ptr, bytes.length, &img);
+if (err != MEMLOAD_OK)
+    return err;
+// img.entry is the Mach-O entry; img.base is the slide-adjusted mapping
+memload_unmap(&img);
+----
+
+C callers link the library and use the same `memload_*` names.
+
+== Build
+
+[source,bash]
+----
+dub build --compiler=ldc2
+dub run --config=test-betterc --compiler=ldc2
+----
+
+== Changelog
+
+See `CHANGELOG.adoc`.
+
+== License
+
+MIT

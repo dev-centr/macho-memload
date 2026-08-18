@@ -1,0 +1,17 @@
+*
+!.gitignore
+!LICENSE
+!README.adoc
+!CHANGELOG.adoc
+!AGENTS.md
+!dub.sdl
+!source/
+!source/**
+!tests/
+!tests/**
+!docs/
+!docs/**
+!.github/
+!.github/**
+!examples/
+!examples/**

@@ -1,0 +1,5 @@
+= Changelog
+
+== 2026-08-18 — v0.1.0
+
+* Initial BetterC mapper and C ABI.

@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            triplet: linux-x64
+          - os: ubuntu-24.04-arm
+            triplet: linux-arm64
+          - os: windows-latest
+            triplet: windows-x64
+          - os: macos-14
+            triplet: macos-arm64
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dlang-community/setup-dlang@v1
+        with:
+          compiler: ldc-latest
+      - name: Build BetterC library
+        run: dub build --compiler=ldc2 --config=library
+      - name: BetterC parse/map test
+        run: dub run --compiler=ldc2 --config=test-betterc
