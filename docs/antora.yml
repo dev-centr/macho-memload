@@ -1,6 +1,5 @@
-name: macho-memload
-title: macho-memload
-version: 0.1.0
-start_page: ROOT:index.adoc
+name: tools
+title: Tools
+version: ~
 nav:
-  - modules/ROOT/nav.adoc
+- modules/macho-memload/nav.adoc
