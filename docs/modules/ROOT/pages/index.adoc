@@ -13,6 +13,6 @@ On Darwin, `LC_LOAD_DYLIB` names resolve with `dlopen` / `dlsym`. On Linux and W
 
 == Related
 
-* xref:general-knowledge:explanation/architecture/polyglot-distribution.adoc[Polyglot distribution (experimental)]
+* xref:general-knowledge::explanation/architecture/polyglot-distribution.adoc[Polyglot distribution (experimental)]
 * link:https://github.com/dev-centr/binary-tailor[binary-tailor]
 * link:https://github.com/jart/cosmopolitan[Cosmopolitan Libc / APE]
