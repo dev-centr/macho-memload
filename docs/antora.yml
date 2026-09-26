@@ -1,5 +1,5 @@
 name: tools
 title: Tools
 version: ~
-nav:
-- modules/macho-memload/nav.adoc
+# Nav owned by hub tools-docs (antora.yml nav list). Antora Object.assign keeps only the
+# last source's nav for a shared component name; product nav: keys would clobber the forest.
