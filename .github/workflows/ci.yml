@@ -23,8 +23,8 @@ jobs:
             triplet: macos-arm64
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: dlang-community/setup-dlang@v1
+      - uses: actions/checkout@v7
+      - uses: dlang-community/setup-dlang@v2
         with:
           compiler: ldc-latest
       - name: Build BetterC library
