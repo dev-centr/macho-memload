@@ -1,0 +1,14 @@
+# Fails CI when tracked text files contain double-encoded UTF-8 (mojibake), e.g. an em dash
+# saved as three junk characters by Windows PowerShell 5.1. Backstop for the machine-wide
+# pre-commit hook. Logic: dev-centr/agent-rules tools/encoding-guard (general/text-encoding.md).
+# Intentional examples: "mojibake-guard: allow" on the line, or globs in .encoding-allow.
+name: Encoding guard
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  encoding:
+    uses: dev-centr/agent-rules/.github/workflows/encoding-guard.yml@main
