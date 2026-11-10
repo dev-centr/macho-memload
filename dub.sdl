@@ -1,6 +1,6 @@
 name "macho-memload"
 description "In-memory Mach-O / dyld loader (BetterC) for polyglot and APE payloads"
-version "0.1.0"
+version "0.1.1"
 authors "DevCentr"
 copyright "Copyright © 2026, DevCentr"
 homepage "https://github.com/dev-centr/macho-memload"

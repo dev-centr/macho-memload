@@ -1,5 +1,11 @@
 = Changelog
 
+== 2026-11-10
+
+=== Registry readme
+
+* Version 0.1.1 publishes a root `README.md` so code.dlang.org can show the listing.
+
 == 2026-08-18 — v0.1.0
 
 * BetterC Mach-O parser (thin + fat), segment mapper, classic `dyld_info` rebase/bind.
